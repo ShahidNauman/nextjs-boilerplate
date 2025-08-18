@@ -31,6 +31,12 @@ const eslintConfig = [
       unicorn: unicorn,
     },
   },
+  {
+    rules: {
+      // Suppress import/no-unresolved for Next.js virtual modules
+      "import/no-unresolved": ["error", { ignore: ["server-only"] }],
+    },
+  },
 ];
 
 export default eslintConfig;
