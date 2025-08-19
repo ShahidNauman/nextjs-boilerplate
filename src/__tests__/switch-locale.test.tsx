@@ -3,7 +3,7 @@ import { afterEach, describe, expect, test } from "vitest";
 import SwitchLocale from "@/components/switch-locale";
 import i18nConfig, { type Locale } from "@/configs/i18n-config";
 
-describe("SwitchLocale Component Tests", () => {
+describe("Switching Locale Unit Tests", () => {
   afterEach(() => {
     cleanup();
   });
@@ -21,9 +21,8 @@ describe("SwitchLocale Component Tests", () => {
   )("Switching locale from %s to %s", (currentLocale, newLocale) => {
     render(<SwitchLocale current={currentLocale as Locale["code"]} />);
 
-    const selectEl = screen.getByRole("combobox", { name: /Language:/i });
-
     // Simulate changing the locale
+    const selectEl = screen.getByRole("combobox", { name: /Language:/i });
     (selectEl as HTMLSelectElement).value = newLocale;
     selectEl.dispatchEvent(new Event("change"));
 

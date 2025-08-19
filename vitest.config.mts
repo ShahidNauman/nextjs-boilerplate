@@ -17,7 +17,7 @@ function stubServerOnly() {
 }
 
 export default defineConfig({
-  plugins: [tsconfigPaths(), react(), stubServerOnly()],
+  plugins: [react(), tsconfigPaths(), stubServerOnly()],
   test: {
     environment: "jsdom",
     setupFiles: [path.resolve(__dirname, "./src/vitest.setup.ts")],
