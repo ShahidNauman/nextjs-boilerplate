@@ -1,7 +1,7 @@
 import react from "@vitejs/plugin-react";
 import path from "path";
-import { defineConfig } from "vitest/config";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { defineConfig } from "vitest/config";
 
 // Add this plugin to stub 'server-only'
 function stubServerOnly() {
@@ -21,5 +21,7 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: [path.resolve(__dirname, "./src/vitest.setup.ts")],
+    /* Ignore Playwright tests */
+    exclude: ["e2e", "playwright", "node_modules"],
   },
 });
